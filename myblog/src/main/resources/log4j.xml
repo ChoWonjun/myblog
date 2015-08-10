@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="org.devnote.myblog">
+	<logger name="org.kosta.devnote">
 		<level value="info" />
 	</logger>
 	

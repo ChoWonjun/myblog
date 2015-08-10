@@ -1,4 +1,4 @@
-package org.devnote.myblog;
+package org.devnote.myblog.controller;
 
 import java.text.DateFormat;
 import java.util.Date;

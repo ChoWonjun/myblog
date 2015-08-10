@@ -1,0 +1,378 @@
+@CHARSET "UTF-8";
+
+.container {
+	width: 80%;
+	margin: 20px auto;
+	padding: 10px;
+}
+
+/*
+	타일즈 프레임워크 메인 레이아웃 CSS
+*/
+body{
+	font-size: 12px;
+	background-color: #F5F5F5;
+	background-image: url("/devnote/resources/images/bg.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+#container {
+	width: 980px;
+	margin: 40px auto;
+	box-shadow: 3px 3px 10px grey;
+}
+
+#header {
+	height:100px;
+	background-color: white;
+	padding: 15px;
+}
+
+#menu {
+	height:50px;
+	background-color: #505050;
+	padding: 15px;
+}
+
+#main{
+	min-height:600px;
+	width: 700px;
+	float: left;
+	background-color: white;
+}
+
+#right {
+	min-height:600px;
+	width: 279px;
+	float: right;
+	border-left: 1px dashed #999;
+	background-color: #F6F6F6;
+}
+
+.contents {
+	padding: 15px;
+}
+
+#footer {
+	color: white;
+	height:80px;
+	clear: left;
+	padding: 15px;
+	background-color: #505050;
+}
+
+/*
+ * header
+ */
+#userContainer {
+	margin-top: 15px;
+	padding: 10px;
+	float: right;
+}
+
+#userContainer #userMenu {
+	font-size: 13px;
+	color: #777;
+	margin-left: 3px;
+	margin-top: 22px;
+	
+}
+ 
+/*
+ *	right
+ */
+#searchContainer {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+#searchForm {
+	width: 205px;
+	height: 25px;
+	border: 4px solid #505050;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+#searchBtn {
+	width: 213px;
+	height: 25px;
+}
+
+#articleListContainer {
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 20px;
+	padding: 15px;
+}
+
+#articleListContainer span {
+	display: inline-block;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#pagination {
+	text-align: center;
+	padding-top: 30px;
+}
+
+#articleListContainer #article_title {
+	max-width: 150px;
+}
+
+#articleListContainer #new_icon {
+	margin-bottom: 5px;
+}
+
+#articleListContainer #article_time {
+	font-size: 11px;
+	color:gray;
+	float:right;
+	text-align:right;
+	width: 50px;
+}
+
+#
+
+/*
+ *	footer
+ */
+#socialContainer {
+	width: 245px;
+	margin-right: 40px;
+}
+
+#socialContainer img {
+	float: left;
+	width: 70px;
+	height: 70px;
+	margin: 5px;
+}
+
+#footerContents {
+	margin-top: 10px;
+	margin-left: 260px;
+	line-height: 20px;
+}
+
+/*
+ *	article
+ */
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+#articleContainer{
+	font-family: 'Nanum Gothic', sans-serif;
+	padding: 20px;
+	word-break:break-all;
+}
+
+#articleHeader{
+	
+}
+
+#articleHeader #articleTitle{
+	font-size: 36px;
+    letter-spacing: -2px;
+    font-weight: normal;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid;
+}
+
+#articleHeader #articleInfo_left{
+	font-family: 'Open Sans', sans-serif;
+	text-transform: uppercase;
+	width:auto;
+	padding-left:5px;
+	padding-right:5px;
+	border-bottom: 1px solid;
+	text-align:left;
+	color: gray;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	float:left;
+}
+
+#articleHeader #articleInfo_center{
+	font-family: 'Open Sans', sans-serif;
+	text-transform: uppercase;
+	width:62px;
+	float:left;
+	margin-left:20px;
+	padding-left:5px;
+	padding-right:5px;
+	text-align:left;
+	color: gray;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#articleHeader #articleInfo_right{
+	width:auto;
+	float:right;
+	text-align:right;
+	padding-left: 5px;
+	color: gray;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#articleContents{
+	clear: left;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	line-height: 18px;
+}
+
+#articleContents img {
+	max-width: 630px;
+}
+
+
+/*
+*	article register form
+*/
+
+#select_category {
+	width: 35%;
+	margin-bottom: 20px;
+	border-color: #CDCDCD;
+}
+
+#select_division {
+	width: 35%;
+	margin-bottom: 20px;
+	border-color: #CDCDCD;
+	
+}
+
+#input_title {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+/*
+*	login form
+*/
+
+#loginContainer {
+	border: 1px solid #777;
+	width: 450px;
+	margin: 0px auto;
+	text-align: center;
+	margin-top: 100px;
+	padding-bottom: 25px;
+}
+
+#login_label {
+	text-align: left;
+	font-size:16px;
+	color: white;
+	height: 30px;
+	padding-top: 12px;
+	padding-left: 16px;
+	background-color: #777;
+	margin-bottom: 20px;
+}
+
+#loginContainer input{
+	font-size: 15px;
+	padding: 10px;
+	border: 1px solid #999;
+	width: 350px;
+	height: 16px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#loginBtn_area {
+	margin-top: 12px;
+	margin-left: 38px;
+	text-align: left;
+}
+
+/*
+*	user register form
+*/
+
+#register_user_container {
+	border: 1px solid #777;
+	width: 450px;
+	margin: 0px auto;
+	text-align: center;
+	margin-top: 80px;
+	padding-bottom: 25px;
+}
+
+#register_user_label {
+	text-align: left;
+	font-size:16px;
+	color: white;
+	height: 30px;
+	padding-top: 12px;
+	padding-left: 16px;
+	background-color: #777;
+	margin-bottom: 20px;
+}
+
+#register_user_container input{
+	font-size: 15px;
+	padding: 10px;
+	border: 1px solid #999;
+	width: 350px;
+	height: 16px;
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+
+#register_user_btn_area {
+	margin-top: 12px;
+	margin-left: 38px;
+	text-align: left;
+}
+
+/*
+*	find userinfo
+*/
+
+#find_userinfo_container {
+	border: 1px solid #777;
+	width: 450px;
+	margin: 0px auto;
+	text-align: center;
+	margin-top: 80px;
+	padding-bottom: 25px;
+}
+
+#find_userinfo_label {
+	text-align: left;
+	font-size:16px;
+	color: white;
+	height: 30px;
+	padding-top: 12px;
+	padding-left: 16px;
+	background-color: #777;
+	margin-bottom: 20px;
+}
+
+#find_userinfo_container input{
+	font-size: 15px;
+	padding: 10px;
+	border: 1px solid #999;
+	width: 350px;
+	height: 16px;
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+
+#find_userinfo_btn_area {
+	margin-top: 12px;
+	margin-left: 38px;
+	text-align: left;
+}
