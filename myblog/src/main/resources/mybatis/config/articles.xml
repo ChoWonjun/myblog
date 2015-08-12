@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sql Mapper -->
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="articles">
+	<resultMap type="article" id="articleRM">
+		<result property="articleNo" column="article_no" />
+		<result property="category" column="category" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="recommend" column="recommend" />
+		<result property="share" column="share" />
+		<result property="open" column="open" />
+		<result property="writeDate" column="write_date" />
+		<result property="writer" column="writer" />
+	</resultMap>
+	<select id="getTotalCount" resultType="int">
+		select count(*) from articles
+	</select>
+	<insert id="insertArticle">
+		<selectKey keyProperty="articleNo" resultType="int" order="AFTER">
+			select max(article_no) from articles
+		</selectKey>
+		insert into articles(category,title,content,share,open,write_date,writer)
+		values(#{category},#{title},#{content},#{share},#{open},now(),#{writer})
+	</insert>
+	<select id="getPagingList" resultMap="articleRM">
+		select list.* from
+		(
+		select @rownum := @rownum + 1 as rownum, b.* from
+		(select * from articles order by article_no desc) b, (select @rownum := 0) r
+		) list where list.rownum between #{beginRow} and #{endRow}
+	</select>
+	<select id="getArticlesByCategory" resultMap="articleRM">
+		select list.*
+		from (
+		select @rownum := @rownum + 1 as rownum, b.* from
+		(select * from articles where category=#{category} order by article_no desc) b,
+		(select @rownum := 0) r
+		) list where list.rownum between #{page.beginRow} and
+		#{page.endRow}
+	</select>
+	<select id="getArticle" resultMap="articleRM">
+		select * from articles where
+		article_no=#{articleNo}
+	</select>
+	<update id="updateArticle">
+		update articles set
+		category=#{category},division=#{division},title=#{title},contents=#{contents},hits=#{hits},mod_time=now()
+		where article_no=#{articleNo}
+	</update>
+	<delete id="deleteArticle">
+		delete from articles where article_no=#{articleNo}
+	</delete>
+</mapper>
