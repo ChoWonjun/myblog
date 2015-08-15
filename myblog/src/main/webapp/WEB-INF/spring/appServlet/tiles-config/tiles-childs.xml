@@ -11,29 +11,17 @@
 		<put-attribute name="footer" value="/WEB-INF/views/templates/footer.jsp"/>
 	</definition>
 	
-	<definition name="board_default/*" extends="default">
-		<put-attribute name="main" value="/WEB-INF/views/board/{1}.jsp" />
+	<definition name="article_default/*" extends="default">
+		<put-attribute name="main" value="/WEB-INF/views/article/{1}.jsp" />
 	</definition>
-	<definition name="board_default/*/*" extends="default">
-		<put-attribute name="main" value="/WEB-INF/views/board/{1}/{2}.jsp" />
+	<definition name="article_default/*/*" extends="default">
+		<put-attribute name="main" value="/WEB-INF/views/article/{1}/{2}.jsp" />
 	</definition>
-	<definition name="board_wide/*" extends="wide">
-		<put-attribute name="main" value="/WEB-INF/views/board/{1}.jsp" />
+	<definition name="article_wide/*" extends="wide">
+		<put-attribute name="main" value="/WEB-INF/views/article/{1}.jsp" />
 	</definition>
-	<definition name="board_wide/*/*" extends="wide">
-		<put-attribute name="main" value="/WEB-INF/views/board/{1}/{2}.jsp" />
+	<definition name="article_wide/*/*" extends="wide">
+		<put-attribute name="main" value="/WEB-INF/views/article/{1}/{2}.jsp" />
 	</definition>
-	
-	<definition name="user_default/*" extends="default">
-		<put-attribute name="main" value="/WEB-INF/views/user/{1}.jsp" />
-	</definition>
-	<definition name="user_default/*/*" extends="default">
-		<put-attribute name="main" value="/WEB-INF/views/user/{1}/{2}.jsp" />
-	</definition>
-	<definition name="user_wide/*" extends="wide">
-		<put-attribute name="main" value="/WEB-INF/views/user/{1}.jsp" />
-	</definition>
-	<definition name="user_wide/*/*" extends="wide">
-		<put-attribute name="main" value="/WEB-INF/views/user/{1}/{2}.jsp" />
-	</definition>
+
 </tiles-definitions>

@@ -8,7 +8,7 @@
 			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
 			<span class="icon-bar"></span> <span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="#">MyBlog</a>
+		<a class="navbar-brand" href="${initParam.root}">MyBlog</a>
 	</div>
 	<div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
 		<ul class="nav navbar-nav">

@@ -10,9 +10,9 @@
 		</ul>
 		<form class="navbar-form navbar-right" role="search">
 			<div class="form-group">
-				<input type="text" class="form-control" placeholder="검색">
+				<input type="text" class="form-control" placeholder="Search">
 			</div>
-			<button type="submit" class="btn btn-default">Search</button>
+			<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
 		</form>
 	</div>
 </nav>

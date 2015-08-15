@@ -8,7 +8,6 @@ public class Article {
 	private String title;
 	private String content;
 	private int recommend;
-	private boolean share;
 	private boolean open;
 	private Date writeDate;
 	private String writer;
@@ -18,12 +17,11 @@ public class Article {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Article(String category, String title, String content, boolean share, boolean open, String writer) {
+	public Article(String category, String title, String content, boolean open, String writer) {
 		super();
 		this.category = category;
 		this.title = title;
 		this.content = content;
-		this.share = share;
 		this.open = open;
 		this.writer = writer;
 	}
@@ -68,14 +66,6 @@ public class Article {
 		this.recommend = recommend;
 	}
 
-	public boolean isShare() {
-		return share;
-	}
-
-	public void setShare(boolean share) {
-		this.share = share;
-	}
-
 	public boolean isOpen() {
 		return open;
 	}
@@ -103,8 +93,8 @@ public class Article {
 	@Override
 	public String toString() {
 		return "Article [articleNo=" + articleNo + ", category=" + category + ", title=" + title + ", content="
-				+ content + ", recommend=" + recommend + ", share=" + share + ", open=" + open + ", writeDate="
-				+ writeDate + ", writer=" + writer + "]";
+				+ content + ", recommend=" + recommend + ", open=" + open + ", writeDate=" + writeDate + ", writer="
+				+ writer + "]";
 	}
 
 }

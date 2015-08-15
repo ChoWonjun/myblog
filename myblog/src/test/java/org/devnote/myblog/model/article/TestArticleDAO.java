@@ -28,7 +28,6 @@ public class TestArticleDAO {
 	String category = "first";
 	String title = "second";
 	String content = "third";
-	boolean share = true;
 	boolean open = false;
 	String writer = "admin";
 	
@@ -40,10 +39,16 @@ public class TestArticleDAO {
 	
 	@Test
 	public void testInsertArticle(){
-		Article article = new Article(category,title,content,share,open,writer);
+		Article article = new Article(category,title,content,open,writer);
 		articleDAO.insertArticle(article);
 		log.info("게시글 번호는 {} 입니다.",article.getArticleNo());
 		log.info("게시글 추천수는 {} 입니다.",article.getRecommend());
 		log.info("게시글 작성일은 {} 입니다.",article.getWriteDate());
+	}
+	
+	@Test
+	public void testGetArticle() {
+		Article article = articleDAO.getArticle(2);
+		log.info("{}",article.getTitle());
 	}
 }
