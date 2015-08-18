@@ -104,3 +104,31 @@ CREATE TABLE `users` (
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2015-08-05  8:56:29
+
+select * from myblog.articles where category = '개발노트' order by write_date desc limit 1; 
+select count(*) from articles where category = '개발노트';
+insert into articles(category,title,content,open,write_date,writer) values('개발노트','테스트1','테스트 콘텐츠',1,now(),'admin');
+insert into articles(category,title,content,open,write_date,writer) values('개발노트','테스트2','테스트 콘텐츠',1,now(),'admin');
+insert into articles(category,title,content,open,write_date,writer) values('개발노트','테스트3','테스트 콘텐츠',1,now(),'admin');
+insert into articles(category,title,content,open,write_date,writer) values('개발노트','테스트4','테스트 콘텐츠',1,now(),'admin');
+insert into articles(category,title,content,open,write_date,writer) values('개발노트','테스트5','테스트 콘텐츠',1,now(),'admin');
+insert into articles(category,title,content,open,write_date,writer) values('개발노트','테스트6','테스트 콘텐츠',1,now(),'admin');
+insert into articles(category,title,content,open,write_date,writer) values('개발노트','테스트7','테스트 콘텐츠',1,now(),'admin');
+insert into articles(category,title,content,open,write_date,writer) values('개발노트','테스트8','테스트 콘텐츠',1,now(),'admin');
+insert into articles(category,title,content,open,write_date,writer) values('개발노트','테스트9','테스트 콘텐츠',1,now(),'admin');
+insert into articles(category,title,content,open,write_date,writer) values('개발노트','테스트10','테스트 콘텐츠',1,now(),'admin');
+insert into articles(category,title,content,open,write_date,writer) values('개발노트','테스트11','테스트 콘텐츠',1,now(),'admin');
+insert into articles(category,title,content,open,write_date,writer) values('개발노트','테스트12','테스트 콘텐츠',1,now(),'admin');
+
+select * from myblog.articles where category = '개발노트' order by write_date desc limit 0,5;
+
+
+
+
+
+
+
+
+
+
+

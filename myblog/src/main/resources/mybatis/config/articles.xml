@@ -14,9 +14,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="writeDate" column="write_date" />
 		<result property="writer" column="writer" />
 	</resultMap>
-	<select id="getTotalCount" resultType="int">
-		select count(*) from articles
-	</select>
 	<insert id="insertArticle">
 		<selectKey keyProperty="articleNo" resultType="int" order="AFTER">
 			select max(article_no) from articles
@@ -24,22 +21,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into articles(category,title,content,open,write_date,writer)
 		values(#{category},#{title},#{content},#{open},now(),#{writer})
 	</insert>
-	<select id="getPagingList" resultMap="articleRM">
-		select list.* from
-		(
-		select @rownum := @rownum + 1 as rownum, b.* from
-		(select * from articles order by article_no desc) b, (select @rownum := 0) r
-		) list where list.rownum between #{beginRow} and #{endRow}
-	</select>
-	<select id="getArticlesByCategory" resultMap="articleRM">
-		select list.*
-		from (
-		select @rownum := @rownum + 1 as rownum, b.* from
-		(select * from articles where category=#{category} order by article_no desc) b,
-		(select @rownum := 0) r
-		) list where list.rownum between #{page.beginRow} and
-		#{page.endRow}
-	</select>
 	<select id="getArticle" resultMap="articleRM">
 		select * from articles where
 		article_no=#{articleNo}
@@ -47,4 +28,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="deleteArticle">
 		delete from articles where article_no=#{articleNo}
 	</delete>
+	<select id="recentArticle" resultMap="articleRM">
+		select * from articles where category=#{value} order by write_date desc limit 1
+	</select>
+	<select id="getTotalCounts" resultType="int">
+		select count(*) from articles where category = #{value}
+	</select>
+	<select id="getArticleList" parameterType="page" resultMap="articleRM">
+		select * from myblog.articles where category = #{category} order by write_date desc limit #{beginRow},#{pageSize};
+	</select>
 </mapper>

@@ -1,6 +1,9 @@
 package org.devnote.myblog.model.article;
 
 import static org.junit.Assert.assertNotNull;
+
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,13 +33,7 @@ public class TestArticleDAO {
 	String content = "third";
 	boolean open = false;
 	String writer = "admin";
-	
-	@Test
-	public void testGetTotalCount() {
-		int totalCount = articleDAO.getTotalCount();
-		log.info("총 {}개의 게시물이 있습니다.", totalCount);
-	}
-	
+		
 	@Test
 	public void testInsertArticle(){
 		Article article = new Article(category,title,content,open,writer);
@@ -50,5 +47,25 @@ public class TestArticleDAO {
 	public void testGetArticle() {
 		Article article = articleDAO.getArticle(2);
 		log.info("{}",article.getTitle());
+	}
+	
+	@Test
+	public void testGetTotalCounts(){
+		int total = articleDAO.getTotalCounts("개발노트");
+		log.info("글 갯수 : {}",total);
+	}
+	
+	@Test
+	public void testRecentArticle(){
+		Article article = articleDAO.recentArticle("개발노트");
+		log.info("최근 글 제목 : {}",article.getTitle());
+	}
+	
+	@Test
+	public void testGetArticleList(){
+		int total = articleDAO.getTotalCounts("개발노트");
+		ArticlePage page = new ArticlePage("개발노트", total);
+		List<Article> list = articleDAO.getArticleList(page);
+		System.out.println(list);
 	}
 }
