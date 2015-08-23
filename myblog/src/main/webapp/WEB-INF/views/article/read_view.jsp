@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <script type="text/javascript">
 	$(function() {
@@ -10,6 +11,20 @@
 			} else {
 				$('#articleList').hide();
 			}
+		});
+
+		$('#deleteBtn').click(function() {
+			if (confirm("게시물을 삭제하시겠습니까?")) {
+				$('#delete_article_form').submit();
+			}
+		});
+
+		$('#updateBtn').click(function() {
+			$('#update_article_form').submit();
+		});
+
+		$('#openBtn').click(function() {
+			
 		});
 	});
 </script>
@@ -37,7 +52,8 @@
 		<c:forEach var="articles" items="${list}">
 			<tr>
 				<td>${articles.articleNo}</td>
-				<td>${articles.title}</td>
+				<td><a
+					href="${initParam.root}article/${page.currentPage}/${articles.articleNo}">${articles.title}</a></td>
 				<td>${articles.recommend}</td>
 				<td>${articles.writeDate}</td>
 			</tr>
@@ -83,9 +99,11 @@
 <article>
 	<div class="page-header">
 		<h1>${article.title}</h1>
-		<br> ${article.category} | ${article.writeDate} | <a>수정</a> | <a
-			style="text-decoration: none">삭제</a> | <a
-			style="text-decoration: none">설정</a>
+		<br> ${article.category} | ${article.writeDate} | <a id="updateBtn">수정</a> | <a id="deleteBtn">삭제</a> | <a id="openBtn">설정</a>
+		<form:form id="delete_article_form" name="delete_article_form" 
+		action="${initParam.root}article/${article.articleNo}" method="DELETE"></form:form>
+		<form:form id="update_article_form" name="update_article_form"
+		action="${initParam.root}article/update_form/${article.articleNo}"></form:form>
 	</div>
 	<div id="page-content">${article.content}</div>
 	<hr>

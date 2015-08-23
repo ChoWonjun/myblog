@@ -35,6 +35,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from articles where category = #{value}
 	</select>
 	<select id="getArticleList" parameterType="page" resultMap="articleRM">
-		select * from myblog.articles where category = #{category} order by write_date desc limit #{beginRow},#{pageSize};
+		select article_no,title,write_date from myblog.articles where category = #{category} order by article_no desc limit #{beginRow},#{pageSize};
 	</select>
 </mapper>

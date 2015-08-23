@@ -29,7 +29,7 @@ public class ArticleController {
 	}
 	
 	@RequestMapping(value = "/article/{currentPage}/{articleNo}", method=RequestMethod.GET)
-	public String selectArticle(@PathVariable int articleNo,@PathVariable int currentPage, Model model){	
+	public String selectArticle(@PathVariable int currentPage,@PathVariable int articleNo, Model model){	
 		ArticleListContainer listContainer = articleService.selectArticle(articleNo, currentPage);
 		model.addAttribute("listContainer",listContainer);
 		return "article_default/read_view";
@@ -42,4 +42,10 @@ public class ArticleController {
 		return "article_default/read_view";
 	}
 	
+	@RequestMapping(value = "/article/{articleNo}", method=RequestMethod.DELETE)
+	public String deleteArticle (@PathVariable int articleNo, Model model) {
+		articleService.deleteArticle(articleNo);
+		return "redirect:../";
+	}
+		
 }
