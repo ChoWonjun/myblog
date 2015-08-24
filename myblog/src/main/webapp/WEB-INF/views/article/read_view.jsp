@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <script type="text/javascript">
 	$(function() {
@@ -24,7 +24,7 @@
 		});
 
 		$('#openBtn').click(function() {
-			
+
 		});
 	});
 </script>
@@ -55,7 +55,7 @@
 				<td><a
 					href="${initParam.root}article/${page.currentPage}/${articles.articleNo}">${articles.title}</a></td>
 				<td>${articles.recommend}</td>
-				<td>${articles.writeDate}</td>
+				<td>${articles.date}</td>
 			</tr>
 		</c:forEach>
 
@@ -99,11 +99,13 @@
 <article>
 	<div class="page-header">
 		<h1>${article.title}</h1>
-		<br> ${article.category} | ${article.writeDate} | <a id="updateBtn">수정</a> | <a id="deleteBtn">삭제</a> | <a id="openBtn">설정</a>
-		<form:form id="delete_article_form" name="delete_article_form" 
-		action="${initParam.root}article/${article.articleNo}" method="DELETE"></form:form>
+		<br> ${article.category} | ${article.writeDate} | <a
+			id="updateBtn">수정</a> | <a id="deleteBtn">삭제</a> | <a id="openBtn">설정</a>
+		<form:form id="delete_article_form" name="delete_article_form"
+			action="${initParam.root}article/${article.articleNo}"
+			method="DELETE"></form:form>
 		<form:form id="update_article_form" name="update_article_form"
-		action="${initParam.root}article/update_form/${article.articleNo}"></form:form>
+			action="${initParam.root}article/update_form/${article.articleNo}"></form:form>
 	</div>
 	<div id="page-content">${article.content}</div>
 	<hr>

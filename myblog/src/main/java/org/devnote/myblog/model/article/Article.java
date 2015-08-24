@@ -1,5 +1,6 @@
 package org.devnote.myblog.model.article;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Article {
@@ -88,6 +89,12 @@ public class Article {
 
 	public void setWriter(String writer) {
 		this.writer = writer;
+	}
+	
+	public String getDate(){
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String date = sdf.format(writeDate);
+		return date;
 	}
 
 	@Override

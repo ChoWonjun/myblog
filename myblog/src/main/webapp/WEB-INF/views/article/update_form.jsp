@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <script src="${initParam.root}resources/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript"
@@ -59,11 +60,11 @@
 </script>
 
 <div class="page-header" align="center">
-	<h2>Writing Note</h2>
+	<h2>Updating Note</h2>
 </div>
-<form class="form-horizontal" role="form" id="register_article_form"
-	name="register_article_form" action="${initParam.root}article"
-	method="POST">
+<form:form class="form-horizontal" role="form" id="update_article_form"
+	name="update_article_form" action="${initParam.root}article/${article.articleNo}"
+	method="PUT">
 
 	<div class="form-group">
 		<label for="category" class="col-md-2 control-label">Category</label>
@@ -115,4 +116,4 @@
 	<input type="hidden" name="${_csrf.parameterName}"
 		value="${_csrf.token}" />
 
-</form>
+</form:form>
