@@ -15,4 +15,6 @@ public interface ArticleService {
 
 	ArticleListContainer selectCategory(String category);
 
+	void updateArticle(Article article);
+
 }

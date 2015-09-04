@@ -16,4 +16,6 @@ public interface ArticleDAO {
 
 	Article recentArticle(String category);
 
+	void updateArticle(Article article);
+
 }

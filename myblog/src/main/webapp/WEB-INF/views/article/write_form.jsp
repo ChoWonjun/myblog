@@ -97,8 +97,8 @@
 		<div class="col-md-3">
 			<select class="form-control" id="articleOpen" name="open">
 				<option>선택</option>
-				<option value="공개">공개</option>
-				<option value="비공개">비공개</option>
+				<option value="true">공개</option>
+				<option value="false">비공개</option>
 			</select>
 		</div>
 	</div>

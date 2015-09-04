@@ -49,4 +49,9 @@ public class ArticleServiceImpl implements ArticleService {
 		List<Article> list = articleDAO.getArticleList(page);
 		return new ArticleListContainer(list, page, article);		
 	}
+	
+	@Override
+	public void updateArticle(Article article){
+		articleDAO.updateArticle(article);
+	}
 }

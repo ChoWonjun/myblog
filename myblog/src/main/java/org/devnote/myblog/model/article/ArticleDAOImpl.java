@@ -42,4 +42,9 @@ public class ArticleDAOImpl implements ArticleDAO {
 	public List<Article> getArticleList(ArticlePage page){
 		return sqlSessionTemplate.selectList("articles.getArticleList", page);
 	}
+	
+	@Override
+	public void updateArticle(Article article){
+		sqlSessionTemplate.update("articles.updateArticle", article);
+	}
 }

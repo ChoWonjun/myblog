@@ -102,8 +102,9 @@
 		<br> ${article.category} | ${article.writeDate} | <a
 			id="updateBtn">수정</a> | <a id="deleteBtn">삭제</a> | <a id="openBtn">설정</a>
 		<form:form id="delete_article_form" name="delete_article_form"
-			action="${initParam.root}article/${article.articleNo}"
-			method="DELETE"></form:form>
+			action="${initParam.root}article"
+			method="DELETE"><input type="hidden" id="articleNo" name="articleNo" value="${article.articleNo}">
+			<input type="hidden" id="category" name="category" value="${article.category}"></form:form>
 		<form:form id="update_article_form" name="update_article_form"
 			action="${initParam.root}article/update_form/${article.articleNo}"></form:form>
 	</div>

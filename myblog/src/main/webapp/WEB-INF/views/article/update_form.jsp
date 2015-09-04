@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <script src="${initParam.root}resources/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript"
@@ -8,6 +9,9 @@
 	charset="utf-8"></script>
 <script type="text/javascript">
 	$(function() {
+		$('#articleCategory').val('${article.category}').attr('selected', 'selected');
+		$('#articleOpen').val('${article.open}').attr('selected', 'selected');
+		
 		//전역변수선언
 		var editor_object = [];
 
@@ -54,10 +58,12 @@
 						return false;
 					} */ 
 					//폼 submit
-					$("#register_article_form").submit();
+					$("#update_article_form").submit();
 				});
 	});
 </script>
+
+<c:set var="article" value="${article}" />
 
 <div class="page-header" align="center">
 	<h2>Updating Note</h2>
@@ -65,7 +71,7 @@
 <form:form class="form-horizontal" role="form" id="update_article_form"
 	name="update_article_form" action="${initParam.root}article/${article.articleNo}"
 	method="PUT">
-
+	<input type="hidden" value="${article.articleNo}" id="articleNo" name="articleNo">
 	<div class="form-group">
 		<label for="category" class="col-md-2 control-label">Category</label>
 		<div class="col-md-3">
@@ -82,7 +88,7 @@
 	<div class="form-group">
 		<label for="title" class="col-md-2 control-label">Title</label>
 		<div class="col-md-8">
-			<input type="text" class="form-control" id="title" name="title"
+			<input type="text" class="form-control" id="title" name="title" value="${article.title}"
 				placeholder=" 제목">
 		</div>
 	</div>
@@ -90,7 +96,7 @@
 		<label for="content" class="col-md-2 control-label">Content</label>
 		<div class="col-md-8">
 			<textarea id="SE" name="content" style="width: 100%; height: 412px;"
-				rows="20" cols="30" class="form-control"></textarea>
+				rows="20" cols="30" class="form-control">${article.content}</textarea>
 		</div>
 	</div>
 	<div class="form-group">
@@ -98,8 +104,8 @@
 		<div class="col-md-3">
 			<select class="form-control" id="articleOpen" name="open">
 				<option>선택</option>
-				<option value="공개">공개</option>
-				<option value="비공개">비공개</option>
+				<option value="true">공개</option>
+				<option value="false">비공개</option>
 			</select>
 		</div>
 	</div>

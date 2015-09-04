@@ -37,4 +37,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getArticleList" parameterType="page" resultMap="articleRM">
 		select article_no,title,date(write_date) as writeDate from myblog.articles where category = #{category} order by article_no desc limit #{beginRow},#{pageSize};
 	</select>
+	<update id="updateArticle">
+		update articles set category=#{category},title=#{title},content=#{content},open=#{open} where article_no=#{articleNo}
+	</update>
 </mapper>
